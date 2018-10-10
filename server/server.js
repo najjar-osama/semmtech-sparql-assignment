@@ -5,7 +5,7 @@ const path = require("path");
 const app = express();
 
 // variables
-const buildPath = path.join(__dirname, "..", "build");
+const buildPath = path.join(__dirname, "..", "build"); // relative path to 'build' directory
 const port = process.env.PORT || 8080;
 
 // tell the server where he can find the public assets
