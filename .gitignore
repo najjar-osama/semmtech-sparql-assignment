@@ -23,4 +23,5 @@ yarn-debug.log*
 yarn-error.log*
 
 # ignore css files since it is going to be generated from sass files
-/src/**/*.css
+src/**/*.css
+src/*.css
