@@ -1,6 +1,9 @@
 {
   "name": "semmtech-sparql-assignment",
   "version": "0.1.0",
+  "engines": {
+    "node": "10.8.0"
+  },
   "private": true,
   "dependencies": {
     "express": "^4.16.3",
