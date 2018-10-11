@@ -1,9 +1,9 @@
 import queriesReducer from "./queries";
-import { queriesFactory, queryFactory } from "../queryFactory";
+import { queriesFactory, queryFactory } from "../../queryFactory";
 import {
   SET_QUERIES,
-  ADD_QUERY,
-  EDIT_QUERY,
+  CREATE_QUERY,
+  UPDATE_QUERY,
   DELETE_QUERY
 } from "../actionTypes";
 describe("QueriesReducer Test Suit", () => {
@@ -13,7 +13,7 @@ describe("QueriesReducer Test Suit", () => {
   });
   test("should add a query", () => {
     const dummyQuery = queryFactory("some-id");
-    const actionObject = { type: ADD_QUERY, query: dummyQuery };
+    const actionObject = { type: CREATE_QUERY, query: dummyQuery };
     const state = queriesReducer([], actionObject);
     expect(state).toHaveLength(1);
     expect(state).toContain(dummyQuery);
@@ -45,7 +45,7 @@ describe("QueriesReducer Test Suit", () => {
       name: "I will be an updated query"
     };
     const actionObject = {
-      type: EDIT_QUERY,
+      type: UPDATE_QUERY,
       id: toBeUpdated.id,
       query: theUpdatedQuery
     };

@@ -1,17 +1,20 @@
 import {
   SET_QUERIES,
-  ADD_QUERY,
-  EDIT_QUERY,
+  CREATE_QUERY,
+  UPDATE_QUERY,
   DELETE_QUERY
 } from "../actionTypes";
 
-export const addQuery = query => ({
-  type: ADD_QUERY,
+export const createQuery = query => ({
+  type: CREATE_QUERY,
   query
 });
 
-export const editQuery = (id, query) => ({
-  type: EDIT_QUERY,
+export const dataAddQuery = query => {
+  return dispatch => {};
+};
+export const updateQuery = (id, query) => ({
+  type: UPDATE_QUERY,
   id,
   query
 });

@@ -2,21 +2,21 @@ import createStore from "../createStore";
 // import action types
 import {
   SET_QUERIES,
-  ADD_QUERY,
-  EDIT_QUERY,
+  CREATE_QUERY,
+  UPDATE_QUERY,
   DELETE_QUERY
 } from "../actionTypes";
 
 // import action creators
-import { addQuery, editQuery, deleteQuery, setQueries } from "./queries";
+import { createQuery, updateQuery, deleteQuery, setQueries } from "./queries";
 
-import { queryFactory, queriesFactory } from "../queryFactory";
+import { queryFactory, queriesFactory } from "../../queryFactory";
 
 describe("ActionCreators Test Suit", () => {
   test("addQuery should set up add query action object", () => {
     const dummyQuery = queryFactory();
-    const actionObject = addQuery(dummyQuery);
-    expect(actionObject.type).toEqual(ADD_QUERY);
+    const actionObject = createQuery(dummyQuery);
+    expect(actionObject.type).toEqual(CREATE_QUERY);
     expect(actionObject.query).toEqual(dummyQuery);
   });
   test("setQueries should set up set queries action object", () => {
@@ -30,8 +30,8 @@ describe("ActionCreators Test Suit", () => {
   test("editQuery should set up edit query action object", () => {
     const dummyQuery = queryFactory();
     const updatedDummyQuery = { ...dummyQuery, name: "updated" };
-    const actionObject = editQuery(dummyQuery.id, updatedDummyQuery);
-    expect(actionObject.type).toEqual(EDIT_QUERY);
+    const actionObject = updateQuery(dummyQuery.id, updatedDummyQuery);
+    expect(actionObject.type).toEqual(UPDATE_QUERY);
     expect(actionObject.id).toEqual(dummyQuery.id);
     expect(actionObject.query).toEqual(updatedDummyQuery);
   });
