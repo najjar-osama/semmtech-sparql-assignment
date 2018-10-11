@@ -2,3 +2,21 @@ h1,
 h2 {
   margin: 0;
 }
+
+.yasr {
+  padding: 15px 30px;
+}
+
+.yasr button {
+  background-color: $sem-yellow !important;
+  border: none !important;
+  color: #000 !important;
+  border-radius: 0 !important;
+  display: inline;
+  text-align: center;
+  transition: all 0.2s ease-in-out;
+  &:hover {
+    color: #000 !important;
+    background-color: $sem-yellow-darker !important;
+  }
+}
