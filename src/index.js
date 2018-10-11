@@ -13,4 +13,5 @@ import { dataGetQueries } from "./store/actions/queries";
 ReactDOM.render(<App />, document.getElementById("root"));
 serviceWorker.unregister();
 
+console.log(process.env.REACT_APP_API_KEY);
 dataGetQueries();
