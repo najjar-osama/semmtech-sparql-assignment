@@ -8,7 +8,8 @@ const HomePage = props => (
       <div className="home-page__content-wrapper flex container">
         <h1 className="home-page__title">
           <img className="home-page__logo" src={logo} />
-          SPARQL Buddy <small>v0.1</small>
+          SPAR
+          <span>Q</span>L Buddy <small>v0.1</small>
         </h1>
         <br />
         <h2 className="home-page__subtitle">Your SPARQL Queries Maker!</h2>
