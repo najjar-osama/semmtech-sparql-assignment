@@ -1,11 +1,12 @@
 import queriesReducer from "./queries";
 import { queriesFactory, queryFactory } from "../../queryFactory";
 import {
-  SET_QUERIES,
+  GET_QUERIES,
   CREATE_QUERY,
   UPDATE_QUERY,
   DELETE_QUERY
 } from "../actionTypes";
+
 describe("QueriesReducer Test Suit", () => {
   test("Queries InitialState should be an emty array", () => {
     const state = queriesReducer(undefined, { type: "@@INIT" });
@@ -63,7 +64,7 @@ describe("QueriesReducer Test Suit", () => {
     expect(state).toHaveLength(0);
     const dummyQueries = queriesFactory(2);
     const actionObject = {
-      type: SET_QUERIES,
+      type: GET_QUERIES,
       queries: dummyQueries
     };
     state = queriesReducer(state, actionObject);

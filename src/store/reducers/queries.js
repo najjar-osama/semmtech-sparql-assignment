@@ -1,5 +1,5 @@
 import {
-  SET_QUERIES,
+  GET_QUERIES,
   CREATE_QUERY,
   UPDATE_QUERY,
   DELETE_QUERY
@@ -20,7 +20,7 @@ export default (state = queriesDefaultState, action) => {
       });
     case DELETE_QUERY:
       return state.filter(({ id }) => id !== action.id);
-    case SET_QUERIES:
+    case GET_QUERIES:
       return action.queries;
     default:
       return state;

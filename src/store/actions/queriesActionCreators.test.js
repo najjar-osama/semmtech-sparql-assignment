@@ -1,14 +1,14 @@
 import createStore from "../createStore";
 // import action types
 import {
-  SET_QUERIES,
+  GET_QUERIES,
   CREATE_QUERY,
   UPDATE_QUERY,
   DELETE_QUERY
 } from "../actionTypes";
 
 // import action creators
-import { createQuery, updateQuery, deleteQuery, setQueries } from "./queries";
+import { createQuery, updateQuery, deleteQuery, getQueries } from "./queries";
 
 import { queryFactory, queriesFactory } from "../../queryFactory";
 
@@ -21,8 +21,8 @@ describe("ActionCreators Test Suit", () => {
   });
   test("setQueries should set up set queries action object", () => {
     const dummyQueries = queriesFactory(2);
-    const actionObject = setQueries(dummyQueries);
-    expect(actionObject.type).toEqual(SET_QUERIES);
+    const actionObject = getQueries(dummyQueries);
+    expect(actionObject.type).toEqual(GET_QUERIES);
     expect(actionObject.queries).toHaveLength(2);
     expect(actionObject.queries[0]).toEqual(dummyQueries[0]);
     expect(actionObject.queries[1]).toEqual(dummyQueries[1]);
