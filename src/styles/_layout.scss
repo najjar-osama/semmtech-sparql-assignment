@@ -6,6 +6,22 @@
   display: flex;
 }
 
+.flex-dir--column {
+  flex-direction: column;
+}
+.flex-hor--center {
+  align-items: center;
+}
+.page {
+  min-height: 100vh;
+  padding: 60px 0;
+}
+
+.main-content-wrapper {
+  min-width: 100%;
+  max-width: 1024px;
+}
+
 .bg-dots {
   background-image: url("./assets/images/dots.png");
   background-color: rgba(0, 0, 0, 0.4);
