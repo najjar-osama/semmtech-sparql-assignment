@@ -28,6 +28,7 @@
     "build-js": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "start": "node ./server/server.js",
+    "heroku-postbuild": "yarn build",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
