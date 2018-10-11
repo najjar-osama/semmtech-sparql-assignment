@@ -1,0 +1,80 @@
+.home-page {
+  background-image: url("./assets/images/dots.png");
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.home-page__bg-wrapper {
+  background-image: url("./assets/images/linked_cells.png");
+}
+.home-page__content-wrapper {
+  min-height: 100vh;
+  padding-top: 200px;
+  flex-direction: column;
+  justify-content: top;
+  align-items: center;
+  @media screen and (min-width: $md) {
+    padding-top: 50px;
+    justify-content: center;
+    align-items: left;
+  }
+}
+.home-page__title {
+  color: #fff;
+  font-size: 35px;
+  margin: 0;
+  text-shadow: 0px 0px 70px;
+  text-align: center;
+  transition: font-size 0.2s ease-in-out;
+  user-select: none;
+  width: 100%;
+  small {
+    font-size: 20px;
+    @media screen and (min-width: $md) {
+      font-size: 30px;
+    }
+  }
+  @media screen and (min-width: $md) {
+    font-size: 70px;
+    text-align: left;
+  }
+}
+
+.home-page__subtitle {
+  color: $sem-yellow;
+  font-size: 20px;
+  margin: 0;
+  text-align: center;
+  transition: font-size 0.2s ease-in-out;
+  user-select: none;
+  width: 100%;
+  @media screen and (min-width: $md) {
+    font-size: 35px;
+    text-align: left;
+  }
+}
+
+.home-page__btn-wrapper {
+  width: 100%;
+  text-align: center;
+  @media screen and (min-width: $md) {
+    text-align: left;
+  }
+}
+.home-page__btn {
+  background-color: $sem-yellow;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  display: inline;
+  padding: 10px 30px;
+
+  text-align: center;
+  transition: all 0.2s ease-in-out;
+  &:hover {
+    background-color: darken($sem-yellow, 7%);
+    box-shadow: -6px 6px rgba(0, 0, 0, 0.5);
+  }
+  @media screen and (min-width: $md) {
+    font-size: 20px;
+  }
+}
