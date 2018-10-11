@@ -1,11 +1,13 @@
 import React from "react";
 import "../assets/images/linked_cells.png";
 import "../assets/images/dots.png";
+import logo from "../logo.svg";
 const HomePage = props => (
   <div className="home-page bg-dots">
-    <div className="home-page__bg-wrapper bg-linked-cells">
+    <div className="bg-linked-cells">
       <div className="home-page__content-wrapper flex container">
         <h1 className="home-page__title">
+          <img className="home-page__logo" src={logo} />
           SPARQL Buddy <small>v0.1</small>
         </h1>
         <br />
