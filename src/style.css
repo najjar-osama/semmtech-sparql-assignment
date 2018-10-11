@@ -443,7 +443,7 @@ h2 {
 
 .home-page__title {
   color: #fff;
-  font-size: 35px;
+  font-size: 26px;
   margin: 0;
   text-shadow: 0px 0px 70px;
   text-align: center;
@@ -461,7 +461,7 @@ h2 {
       text-align: left; } }
 
 .home-page__logo {
-  height: 65px;
+  height: 45px;
   margin-right: 15px;
   transform: translateY(15px);
   transition: all 0.2s ease-in-out; }
@@ -472,7 +472,7 @@ h2 {
 
 .home-page__subtitle {
   color: #f8e71c;
-  font-size: 20px;
+  font-size: 18px;
   margin: 0;
   text-align: center;
   transition: font-size 0.2s ease-in-out;
@@ -519,3 +519,29 @@ h2 {
   margin-bottom: 30px; }
   .notfound-page__message span {
     color: #f8e71c; }
+
+.header {
+  margin-bottom: 30px; }
+
+.header__content-wrapper {
+  padding: 30px; }
+
+.header__title {
+  font-size: 22px;
+  text-align: center;
+  margin-top: -20px;
+  transition: all 0.2s ease-in-out; }
+  .header__title span {
+    color: #f8e71c; }
+  @media screen and (min-width: 786px) {
+    .header__title {
+      font-size: 36px; } }
+
+.header__logo {
+  height: 50px;
+  margin-right: 15px;
+  transform: translateY(15px);
+  transition: all 0.2s ease-in-out; }
+  @media screen and (min-width: 786px) {
+    .header__logo {
+      height: 70px; } }
