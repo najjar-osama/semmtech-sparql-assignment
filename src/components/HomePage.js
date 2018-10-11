@@ -2,8 +2,8 @@ import React from "react";
 import "../assets/images/linked_cells.png";
 import "../assets/images/dots.png";
 const HomePage = props => (
-  <div className="home-page">
-    <div className="home-page__bg-wrapper">
+  <div className="home-page bg-dots">
+    <div className="home-page__bg-wrapper bg-linked-cells">
       <div className="home-page__content-wrapper flex container">
         <h1 className="home-page__title">
           SPARQL Buddy <small>v0.1</small>

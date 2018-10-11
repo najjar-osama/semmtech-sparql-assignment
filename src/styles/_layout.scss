@@ -5,3 +5,12 @@
 .flex {
   display: flex;
 }
+
+.bg-dots {
+  background-image: url("./assets/images/dots.png");
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.bg-linked-cells {
+  background-image: url("./assets/images/linked_cells.png");
+}
