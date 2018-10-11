@@ -1,2 +1,17 @@
 .btn {
+  background-color: $sem-yellow;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  display: inline;
+  padding: 10px 30px;
+  text-align: center;
+  transition: all 0.2s ease-in-out;
+  &:hover {
+    background-color: $sem-yellow-darker;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+  }
+  @media screen and (min-width: $md) {
+    font-size: 20px;
+  }
 }

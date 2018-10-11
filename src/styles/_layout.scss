@@ -12,13 +12,21 @@
 .flex-hor--center {
   align-items: center;
 }
+.flex-ver--center {
+  justify-content: center;
+}
 .page {
   min-height: 100vh;
   padding: 60px 0;
 }
 
+.block {
+  background-color: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.8);
+}
+
 .main-content-wrapper {
-  min-width: 100%;
+  width: 100%;
   max-width: 1024px;
 }
 

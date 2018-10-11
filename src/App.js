@@ -10,6 +10,7 @@ import { Provider } from "react-redux";
 import createStore from "./store/createStore";
 import HomePage from "./components/HomePage";
 import DashboardPage from "./components/DashboardPage";
+import NotFoundPage from "./components/NotFoundPage";
 
 /*import { dataCreateQuery, dataGetQueries } from "./store/actions/queries";
 import { queryFactory } from "./queryFactory";*/
@@ -22,6 +23,7 @@ const App = () => (
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="/dashboard" component={DashboardPage} />
+        <Route component={NotFoundPage} />
       </Switch>
     </Router>
   </Provider>
