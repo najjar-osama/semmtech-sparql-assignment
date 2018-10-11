@@ -10,5 +10,6 @@ import * as serviceWorker from "./serviceWorker";
 import { queryFactory } from "./queryFactory";
 import { dataCreateQuery } from "./store/actions/queries";*/
 
+console.log(process.env.REACT_APP_API_KEY);
 ReactDOM.render(<App />, document.getElementById("root"));
 serviceWorker.unregister();
