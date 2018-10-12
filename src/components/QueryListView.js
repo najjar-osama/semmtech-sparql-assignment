@@ -8,6 +8,7 @@ export const QueryListView = props => {
   return (
     <div>
       <QueryListFilters />
+      <QueryList queries={queries} />
     </div>
   );
 };

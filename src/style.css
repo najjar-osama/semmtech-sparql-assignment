@@ -577,7 +577,7 @@ h2 {
       height: 70px; } }
 
 .query-list-filters {
-  border: 4px solid #888; }
+  border: 4px solid rgba(0, 0, 0, 0.5); }
 
 .query-list-filters__filter-fields-wrapper {
   width: 100%;
@@ -604,3 +604,26 @@ h2 {
   transition: all 0.2s ease-in-out; }
   .query-list-filters__reset-btn:hover {
     background-color: #ffd600; }
+
+.query-list__content-wrapper {
+  padding: 30px 15px; }
+
+.query-list__empty-message {
+  text-align: center; }
+
+.query-list-item {
+  border-left: 6px solid transparent;
+  padding: 10px 5px;
+  transition: all 0.2s ease-in-out; }
+  .query-list-item:hover {
+    border-left: 6px solid #ffd600; }
+
+.query-list-item__desc {
+  font-size: 18px;
+  margin-bottom: 0; }
+
+.query-list-item__creator {
+  font-size: 16px;
+  font-style: italic;
+  text-align: right;
+  margin-bottom: 0; }
