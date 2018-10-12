@@ -482,6 +482,14 @@ h2 {
     .btn {
       font-size: 20px; } }
 
+.btn--danger {
+  background-color: #a94442; }
+  .btn--danger:hover {
+    background-color: #843534; }
+
+.btn--right {
+  float: right; }
+
 .text-input {
   padding: 10px;
   color: #333;
@@ -735,6 +743,9 @@ h2 {
 
 .query-form__btn {
   margin-right: 10px; }
+
+.query-form__form-actions .query-form__btn:last-child {
+  margin-right: 0px; }
 
 .query-form__content-wrapper {
   padding: 30px 15px; }

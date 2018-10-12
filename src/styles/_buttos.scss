@@ -15,3 +15,13 @@
     font-size: 20px;
   }
 }
+.btn--danger {
+  background-color: #a94442;
+  &:hover {
+    background-color: darken(#a94442, 10%);
+  }
+}
+
+.btn--right {
+  float: right;
+}

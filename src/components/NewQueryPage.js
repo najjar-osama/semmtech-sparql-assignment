@@ -14,7 +14,7 @@ const NewQueryPage = props => (
       <QueryForm
         query={null}
         requestStatus={props.requestStatus}
-        onSubmit={props.dataCreateQuery}
+        createQuery={props.createQuery}
         history={props.history}
       />
     </div>
@@ -25,7 +25,7 @@ const mapStateToProps = state => ({
   requestStatus: state.requestStatus
 });
 const mapDispatchToProps = dispatch => ({
-  dataCreateQuery: query => dispatch(dataCreateQuery(query))
+  createQuery: query => dispatch(dataCreateQuery(query))
 });
 export default connect(
   mapStateToProps,

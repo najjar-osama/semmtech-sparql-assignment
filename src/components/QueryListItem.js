@@ -1,8 +1,11 @@
 import React from "react";
 
-const QueryListItem = ({ name, description, creator }) => {
+const QueryListItem = ({ id, name, description, creator, history }) => {
   return (
-    <div className="query-list-item">
+    <div
+      className="query-list-item"
+      onClick={() => history.push(`/edit/${id}`)}
+    >
       <h2 className="query-list-item__title">{name}</h2>
       <p className="query-list-item__desc">{description}</p>
       <p className="query-list-item__creator">{creator}</p>

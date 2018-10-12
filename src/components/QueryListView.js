@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import queryFilter from "../queryFilter";
+import { filterQueries } from "../queryFilters";
 import QueryListFilters from "./QueryListFilters";
 import QueryListActionBar from "./QueryListActionBar";
 import QueryList from "./QueryList";
@@ -11,11 +11,11 @@ export const QueryListView = props => {
     <div>
       <QueryListFilters />
       <QueryListActionBar history={props.history} />
-      <QueryList queries={queries} />
+      <QueryList history={props.history} queries={queries} />
     </div>
   );
 };
 const mapStateToProps = state => ({
-  queries: queryFilter(state.queries, state.filters)
+  queries: filterQueries(state.queries, state.filters)
 });
 export default connect(mapStateToProps)(QueryListView);

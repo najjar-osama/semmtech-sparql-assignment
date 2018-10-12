@@ -5,7 +5,7 @@ const QueryList = props => (
     <div className="query-list__content-wrapper">
       {props.queries.length !== 0 ? (
         props.queries.map((query, index) => (
-          <QueryListItem key={index} {...query} />
+          <QueryListItem history={props.history} key={index} {...query} />
         ))
       ) : (
         <h3 className="query-list__empty-message">No queries found!</h3>

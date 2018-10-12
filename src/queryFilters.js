@@ -1,4 +1,4 @@
-const filterQueries = (queries, { name, description, creator }) => {
+export const filterQueries = (queries, { name, description, creator }) => {
   const nextQueries = queries.filter(query => {
     const nameMatch = name
       ? query.name.toLowerCase().includes(name.toLowerCase())
@@ -14,4 +14,11 @@ const filterQueries = (queries, { name, description, creator }) => {
   return nextQueries;
 };
 
-export default filterQueries;
+export const getQueryById = (queries, id) => {
+  const filteredQueries = queries.filter(query => {
+    if (id.toLowerCase().trim() === query.id) {
+      return query;
+    }
+  });
+  return filteredQueries[0] || null;
+};

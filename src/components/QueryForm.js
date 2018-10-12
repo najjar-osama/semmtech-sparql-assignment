@@ -1,10 +1,9 @@
 import React from "react";
 import urlSlug from "url-slug";
-import { PENDING, SUCCESS, FAILURE } from "../store/requestStateTypes";
-import { connect } from "react-redux";
 class QueryForm extends React.Component {
   constructor(props) {
     super(props);
+    // set
     const query =
       props.query === null
         ? {
@@ -17,6 +16,7 @@ class QueryForm extends React.Component {
         : props.query;
     this.state = {
       query,
+      isUpdateMode: props.query !== null,
       valid: false,
       validationMessage: ""
     };
@@ -64,19 +64,24 @@ class QueryForm extends React.Component {
     this.editorInstance.options.sparql.callbacks.complete = this.resultViewerInstance.setResponse;
     const editorContent = this.state.query.query
       ? this.state.query.query
-      : `### Your awesome SPARQL query goes here! \n### Excute the query, Satisfied? Save it!
-    `;
+      : `### Your awesome SPARQL query goes here! \n### Excute the query, Satisfied? Save it!\n`;
     this.editorInstance.setValue(editorContent);
   }
 
   handleNameChange(e) {
     const currentQuery = this.state.query;
-    const nextQuery = {
-      ...currentQuery,
-      name: e.target.value,
-      id: urlSlug(e.target.value)
-    };
-    this.setState(state => ({ query: nextQuery }));
+    const nextQuery = this.state.isUpdateMode
+      ? // don't attemp to change the id in the update mode.
+        {
+          ...currentQuery,
+          name: e.target.value
+        }
+      : {
+          ...currentQuery,
+          name: e.target.value,
+          id: urlSlug(e.target.value)
+        };
+    this.setState({ query: nextQuery });
   }
   handleDescriptionChange(e) {
     const currentQuery = this.state.query;
@@ -90,22 +95,18 @@ class QueryForm extends React.Component {
   }
   handleSubmit(e) {
     e.preventDefault();
+
     if (this.validateRequest()) {
       const nextQuery = {
         ...this.state.query,
         query: this.editorInstance.getValue()
       };
-      this.setState(
-        // set that the request is valid ( client side check)
-        () => ({
-          valid: true,
-          validationMessage: ""
-        }),
-        // now the request on the client side is valid, perform the submit to the server
-        () => {
-          this.props.onSubmit(nextQuery);
-        }
-      );
+      this.setState({ valid: true, validationMessage: "" }, () => {
+        this.state.isUpdateMode
+          ? this.props.updateQuery(this.state.query.id, nextQuery)
+          : this.props.createQuery(nextQuery);
+        this.props.history.push("/dashboard");
+      });
     } else {
       this.setState(() => ({
         valid: false,
@@ -124,32 +125,10 @@ class QueryForm extends React.Component {
     );
   }
   getFeedbackMessage() {
-    const reqState = this.props.requestStatus;
-    if (reqState.status === PENDING) {
-      // show laoder
-      return (
-        <div className="alert alert-pending">
-          <p>Submitting...</p>
-        </div>
-      );
-    }
     if (this.state.validationMessage && !this.state.valid) {
       return (
         <div className="alert alert-error">
           <p>{this.state.validationMessage}</p>
-        </div>
-      );
-    }
-    if ((reqState.status === SUCCESS) & this.state.valid) {
-      // this means that query has been saved successfully!
-      // on success back to dashboard
-      // Todo: show a popup to the user that says his query has been successfully saved before redirection to 'dashboard page'
-      this.props.history.push("/dashboard");
-    }
-    if (reqState.status === FAILURE) {
-      return (
-        <div className="alert alert-error">
-          <p>{reqState.error}</p>
         </div>
       );
     }
@@ -184,18 +163,32 @@ class QueryForm extends React.Component {
             <div ref={this.editorNode} />
             <div ref={this.resultViewerNode} />
             <br />
-            <button type="submit" className="btn query-form__btn">
-              Save
-            </button>
-            <button
-              onClick={e => {
-                e.preventDefault();
-                this.props.history.push("/dashboard");
-              }}
-              className="btn query-form__btn"
-            >
-              Back
-            </button>
+            <div className="query-form__form-actions">
+              <button type="submit" className="btn query-form__btn">
+                Save
+              </button>
+              <button
+                onClick={e => {
+                  e.preventDefault();
+                  this.props.history.push("/dashboard");
+                }}
+                className="btn query-form__btn"
+              >
+                Back
+              </button>
+              {this.state.isUpdateMode && (
+                <button
+                  onClick={e => {
+                    e.preventDefault();
+                    this.props.deleteQuery(this.state.query.id);
+                    this.props.history.push("/dashboard");
+                  }}
+                  className="btn btn--danger btn--right query-form__btn"
+                >
+                  Delete
+                </button>
+              )}
+            </div>
           </form>
         </div>
       </div>
@@ -203,7 +196,4 @@ class QueryForm extends React.Component {
   }
 }
 
-const mapStateToProp = state => ({
-  requestStatus: state.requestStatus
-});
-export default connect(mapStateToProp)(QueryForm);
+export default QueryForm;

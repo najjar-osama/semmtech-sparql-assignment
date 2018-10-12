@@ -8,7 +8,11 @@
 .query-form__btn {
   margin-right: 10px;
 }
-
+.query-form__form-actions {
+  .query-form__btn:last-child {
+    margin-right: 0px;
+  }
+}
 .query-form__content-wrapper {
   padding: 30px 15px;
 }
