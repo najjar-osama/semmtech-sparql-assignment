@@ -34,7 +34,7 @@ class QueryForm extends React.Component {
 
     //handle validation
     this.validateRequest = this.validateRequest.bind(this);
-
+    this.captureSubmitAnPrevent = this.captureSubmitAnPrevent.bind(this);
     this.redirectToDashboard = this.redirectToDashboard.bind(this);
 
     // set editor nodes and instances
@@ -72,6 +72,7 @@ class QueryForm extends React.Component {
       ? this.state.query.query
       : `### Your awesome SPARQL query goes here! \n### Excute the query, Satisfied? Save it!\n`;
     this.editorInstance.setValue(editorContent);
+    window.res = this.resultViewerInstance;
   }
 
   handleNameChange(e) {
@@ -101,7 +102,6 @@ class QueryForm extends React.Component {
   }
   handleSubmit(e) {
     e.preventDefault();
-
     if (this.validateRequest()) {
       const nextQuery = {
         ...this.state.query,
@@ -149,6 +149,9 @@ class QueryForm extends React.Component {
       );
     }
   }
+  captureSubmitAnPrevent(e) {
+    e.preventDefault();
+  }
 
   redirectToDashboard() {
     this.props.history.push("/dashboard");
@@ -162,7 +165,10 @@ class QueryForm extends React.Component {
           <div className="query-form__feedback-box">
             {this.getFeedbackMessage()}
           </div>
-          <form className="query-form__form" onSubmit={this.handleSubmit}>
+          <form
+            className="query-form__form"
+            onSubmit={this.captureSubmitAnPrevent}
+          >
             <input
               className="text-input"
               value={query.name}
@@ -185,7 +191,10 @@ class QueryForm extends React.Component {
             <div ref={this.resultViewerNode} />
             <br />
             <div className="query-form__form-actions">
-              <button type="submit" className="btn query-form__btn">
+              <button
+                className="btn query-form__btn"
+                onClick={this.handleSubmit}
+              >
                 Save
               </button>
               <button
