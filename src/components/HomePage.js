@@ -4,7 +4,7 @@ import "../assets/images/dots.png";
 import logo from "../logo.svg";
 const HomePage = props => (
   <div className="home-page bg-dots">
-    <div className="bg-linked-cells">
+    <div className="bg-linked-cells--home-page">
       <div className="home-page__content-wrapper flex container">
         <h1 className="home-page__title">
           <img className="home-page__logo" src={logo} />
