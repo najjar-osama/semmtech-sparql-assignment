@@ -1,7 +1,6 @@
 import React from "react";
 import Header from "./Header";
 import withPageLayout from "./withPageLayout";
-import Editor from "./Editor";
 import QueryListView from "./QueryListView";
 
 const DashboardPage = () => (

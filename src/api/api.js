@@ -1,5 +1,6 @@
-const baseAPIURL =
-  "http://challenge.semmtech.com/sparql-cabinet/api/sparql/queries";
+const baseAPIURL = `http${
+  process.env.NODE_ENV === "production" ? "s" : ""
+}://challenge.semmtech.com/sparql-cabinet/api/sparql/queries`;
 
 const API_KEY = `?api_key=${process.env.REACT_APP_API_KEY}`;
 export const getQueries = () => {
