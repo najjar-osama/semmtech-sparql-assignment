@@ -153,7 +153,7 @@ class QueryForm extends React.Component {
   }
   static getDerivedStateFromProps(props, state) {
     //handle hard reload
-    if (props.query === null && props.match.params.id) {
+    if (props.query === null && props.match && props.match.params.id) {
       props.history.push("/dashboard");
       return null;
     }
