@@ -3,6 +3,7 @@ import urlSlug from "url-slug";
 
 import { connect } from "react-redux";
 import { FAILURE } from "../store/requestStateTypes";
+import { resetRequestStatus } from "../store/actions/requestStatus";
 class QueryForm extends React.Component {
   constructor(props) {
     super(props);
@@ -151,6 +152,7 @@ class QueryForm extends React.Component {
 
   redirectToDashboard() {
     this.props.history.push("/dashboard");
+    resetRequestStatus();
   }
   render() {
     const query = this.state.query;
@@ -217,7 +219,13 @@ class QueryForm extends React.Component {
   }
 }
 
+const mapDispatchToProps = dispatch => ({
+  resetRequestStatus: () => dispatch(resetRequestStatus())
+});
 const mapStateToProps = state => ({
   requestStatus: state.requestStatus
 });
-export default connect(mapStateToProps)(QueryForm);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(QueryForm);

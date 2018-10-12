@@ -1,12 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
-
-const QueryListActionBar = ({ history }) => (
+import { resetRequestStatus } from "../store/actions/requestStatus";
+const QueryListActionBar = ({ history, resetRequestStatus }) => (
   <div className="query-list-action-bar block">
     <div className="query-list-action-bar__content-wrapper">
       <button
         className="query-list-action-bar__btn btn"
         onClick={() => {
+          resetRequestStatus();
           history.push("/new");
         }}
       >
@@ -16,4 +17,10 @@ const QueryListActionBar = ({ history }) => (
   </div>
 );
 
-export default QueryListActionBar;
+const mapDispatchToProps = dispatch => ({
+  resetRequestStatus: () => dispatch(resetRequestStatus())
+});
+export default connect(
+  undefined,
+  mapDispatchToProps
+)(QueryListActionBar);
