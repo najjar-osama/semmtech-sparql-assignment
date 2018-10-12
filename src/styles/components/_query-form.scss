@@ -1,6 +1,14 @@
 .query-form {
 }
 
+.query-form__form {
+  border-top: 10px solid $sem-yellow;
+}
+
+.query-form__btn {
+  margin-right: 10px;
+}
+
 .query-form__content-wrapper {
   padding: 30px 15px;
 }

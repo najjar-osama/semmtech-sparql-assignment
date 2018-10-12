@@ -446,6 +446,23 @@ h2 {
 .bg-linked-cells {
   background-image: url("./assets/images/linked_cells.png"); }
 
+.alert {
+  padding: 10px 10px;
+  margin-bottom: 5px;
+  border: 1px solid transparent; }
+  .alert p {
+    margin: 0px; }
+
+.alert-error {
+  color: #a94442;
+  border-color: #f5c6cb;
+  background-color: #f8d7da; }
+
+.alert-pending {
+  color: #0c5460;
+  background-color: #d1ecf1;
+  border-color: #bee5eb; }
+
 .btn {
   background-color: #f8e71c;
   border: none;
@@ -686,6 +703,12 @@ h2 {
   .query-list-action-bar__btn:hover {
     box-shadow: none;
     color: #fff; }
+
+.query-form__form {
+  border-top: 10px solid #f8e71c; }
+
+.query-form__btn {
+  margin-right: 10px; }
 
 .query-form__content-wrapper {
   padding: 30px 15px; }

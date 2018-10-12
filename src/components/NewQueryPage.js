@@ -15,6 +15,7 @@ const NewQueryPage = props => (
         query={null}
         requestStatus={props.requestStatus}
         onSubmit={props.dataCreateQuery}
+        history={props.history}
       />
     </div>
   </React.Fragment>

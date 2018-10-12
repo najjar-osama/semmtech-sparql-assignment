@@ -35,6 +35,7 @@ export const dataCreateQuery = query => {
         }
       })
       .catch(err => {
+        console.log("osama");
         dispatch(setRequestStatusFailure(err));
       });
   };

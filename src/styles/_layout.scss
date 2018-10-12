@@ -45,3 +45,23 @@
 .bg-linked-cells {
   background-image: url("./assets/images/linked_cells.png");
 }
+
+.alert {
+  padding: 10px 10px;
+  margin-bottom: 5px;
+  border: 1px solid transparent;
+  p {
+    margin: 0px;
+  }
+}
+.alert-error {
+  color: #a94442;
+  border-color: #f5c6cb;
+  background-color: #f8d7da;
+}
+
+.alert-pending {
+  color: #0c5460;
+  background-color: #d1ecf1;
+  border-color: #bee5eb;
+}
