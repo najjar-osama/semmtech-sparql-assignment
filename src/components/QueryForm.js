@@ -156,7 +156,6 @@ class QueryForm extends React.Component {
     resetRequestStatus();
     this.props.history.push("/dashboard");
   }
-  shouldComponentUpdate(nextProps, nextState) {}
   render() {
     //handle hard reload
     if (this.props.query === null && this.props.match.params.id) {
