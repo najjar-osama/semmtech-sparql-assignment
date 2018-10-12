@@ -43,14 +43,6 @@ class QueryForm extends React.Component {
     this.resultViewerInstance = null;
   }
 
-  static getDerivedStateFromProps(props) {
-    //redirect when a hard reload is performed
-    if (props.query === null && props.match.params.id) {
-      props.history.push("/dashboard");
-    }
-    return null;
-  }
-
   componentDidMount() {
     // initialize & configure editor
     this.editorInstance = window.YASQE(this.editorNode.current, {
@@ -166,6 +158,11 @@ class QueryForm extends React.Component {
   }
   shouldComponentUpdate(nextProps, nextState) {}
   render() {
+    //handle hard reload
+    if (this.props.query === null && this.props.match.params.id) {
+      this.props.history.push("/dashboard");
+      return null;
+    }
     const query = this.state.query;
     return (
       <div className="query-form block">
