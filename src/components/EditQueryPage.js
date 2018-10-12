@@ -28,8 +28,9 @@ const mapStateToProps = (state, props) => ({
   query: getQueryById(state.queries, props.match.params.id)
 });
 const mapDispatchToProps = dispatch => ({
-  updateQuery: (id, query) => dispatch(dataUpdateQuery(id, query)),
-  deleteQuery: id => dispatch(dataDeleteQuery(id))
+  updateQuery: (id, query, successCB) =>
+    dispatch(dataUpdateQuery(id, query, successCB)),
+  deleteQuery: (id, successCB) => dispatch(dataDeleteQuery(id, successCB))
 });
 export default connect(
   mapStateToProps,

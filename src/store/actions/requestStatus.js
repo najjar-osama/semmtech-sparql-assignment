@@ -1,7 +1,8 @@
 import {
   SET_REQUEST_STATUS_PENDING,
   SET_REQUEST_STATUS_SUCCESS,
-  SET_REQUEST_STATUS_FAILURE
+  SET_REQUEST_STATUS_FAILURE,
+  RESET_REQUEST_STATUS
 } from "../actionTypes";
 
 export const setRequestStatusPending = () => ({
@@ -16,4 +17,8 @@ export const setRequestStatusSuccess = message => ({
 export const setRequestStatusFailure = error => ({
   type: SET_REQUEST_STATUS_FAILURE,
   error
+});
+
+export const resetRequestStatus = () => ({
+  type: RESET_REQUEST_STATUS
 });

@@ -17,7 +17,7 @@ export const createQuery = query => ({
   query
 });
 
-export const dataCreateQuery = query => {
+export const dataCreateQuery = (query, successCB) => {
   return dispatch => {
     dispatch(setRequestStatusPending());
     api
@@ -27,6 +27,9 @@ export const dataCreateQuery = query => {
           res.text().then(message => {
             dispatch(setRequestStatusSuccess(message));
             dispatch(createQuery(query));
+            if (successCB) {
+              successCB();
+            }
           });
         } else {
           res.text().then(failureMessage => {
@@ -46,7 +49,7 @@ export const updateQuery = (id, query) => ({
   query
 });
 
-export const dataUpdateQuery = (id, query) => {
+export const dataUpdateQuery = (id, query, successCB) => {
   return dispatch => {
     dispatch(setRequestStatusPending());
     api
@@ -56,6 +59,9 @@ export const dataUpdateQuery = (id, query) => {
           res.text().then(message => {
             dispatch(setRequestStatusSuccess(message));
             dispatch(updateQuery(id, query));
+            if (successCB) {
+              successCB();
+            }
           });
         } else {
           res.text().then(failureMessage => {
@@ -74,7 +80,7 @@ export const deleteQuery = id => ({
   id
 });
 
-export const dataDeleteQuery = id => {
+export const dataDeleteQuery = (id, successCB) => {
   return dispatch => {
     api
       .deleteQuery(id)
@@ -83,6 +89,10 @@ export const dataDeleteQuery = id => {
           res.text().then(message => {
             dispatch(setRequestStatusSuccess(message));
             dispatch(deleteQuery(id));
+            console.log(successCB);
+            if (successCB) {
+              successCB();
+            }
           });
         } else {
           res.text().then(failureMessage => {

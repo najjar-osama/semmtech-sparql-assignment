@@ -1,5 +1,8 @@
 import React from "react";
 import urlSlug from "url-slug";
+
+import { connect } from "react-redux";
+import { FAILURE } from "../store/requestStateTypes";
 class QueryForm extends React.Component {
   constructor(props) {
     super(props);
@@ -30,6 +33,8 @@ class QueryForm extends React.Component {
 
     //handle validation
     this.validateRequest = this.validateRequest.bind(this);
+
+    this.redirectToDashboard = this.redirectToDashboard.bind(this);
 
     // set editor nodes and instances
     this.editorNode = React.createRef();
@@ -103,9 +108,12 @@ class QueryForm extends React.Component {
       };
       this.setState({ valid: true, validationMessage: "" }, () => {
         this.state.isUpdateMode
-          ? this.props.updateQuery(this.state.query.id, nextQuery)
-          : this.props.createQuery(nextQuery);
-        this.props.history.push("/dashboard");
+          ? this.props.updateQuery(
+              this.state.query.id,
+              nextQuery,
+              this.redirectToDashboard
+            )
+          : this.props.createQuery(nextQuery, this.redirectToDashboard);
       });
     } else {
       this.setState(() => ({
@@ -132,6 +140,17 @@ class QueryForm extends React.Component {
         </div>
       );
     }
+    if (this.props.requestStatus.status === FAILURE) {
+      return (
+        <div className="alert alert-error">
+          <p>{this.props.requestStatus.error}</p>
+        </div>
+      );
+    }
+  }
+
+  redirectToDashboard() {
+    this.props.history.push("/dashboard");
   }
   render() {
     const query = this.state.query;
@@ -180,8 +199,10 @@ class QueryForm extends React.Component {
                 <button
                   onClick={e => {
                     e.preventDefault();
-                    this.props.deleteQuery(this.state.query.id);
-                    this.props.history.push("/dashboard");
+                    this.props.deleteQuery(
+                      this.state.query.id,
+                      this.redirectToDashboard
+                    );
                   }}
                   className="btn btn--danger btn--right query-form__btn"
                 >
@@ -196,4 +217,7 @@ class QueryForm extends React.Component {
   }
 }
 
-export default QueryForm;
+const mapStateToProps = state => ({
+  requestStatus: state.requestStatus
+});
+export default connect(mapStateToProps)(QueryForm);

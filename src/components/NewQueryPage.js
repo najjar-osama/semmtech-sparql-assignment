@@ -25,7 +25,7 @@ const mapStateToProps = state => ({
   requestStatus: state.requestStatus
 });
 const mapDispatchToProps = dispatch => ({
-  createQuery: query => dispatch(dataCreateQuery(query))
+  createQuery: (query, successCB) => dispatch(dataCreateQuery(query, successCB))
 });
 export default connect(
   mapStateToProps,

@@ -1,7 +1,8 @@
 import {
   SET_REQUEST_STATUS_FAILURE,
   SET_REQUEST_STATUS_PENDING,
-  SET_REQUEST_STATUS_SUCCESS
+  SET_REQUEST_STATUS_SUCCESS,
+  RESET_REQUEST_STATUS
 } from "../actionTypes";
 import { PENDING, SUCCESS, FAILURE } from "../requestStateTypes";
 
@@ -19,6 +20,12 @@ export default (state = requestStateInitialState, action) => {
       return { status: SUCCESS, message: action.message, error: null };
     case SET_REQUEST_STATUS_FAILURE:
       return { status: FAILURE, message: null, error: action.error };
+    case RESET_REQUEST_STATUS:
+      return {
+        status: "",
+        message: null,
+        error: null
+      };
     default:
       return state;
   }
