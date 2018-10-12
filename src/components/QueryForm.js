@@ -151,17 +151,19 @@ class QueryForm extends React.Component {
   captureSubmitAnPrevent(e) {
     e.preventDefault();
   }
-
+  static getDerivedStateFromProps(props, state) {
+    //handle hard reload
+    if (props.query === null && props.match.params.id) {
+      props.history.push("/dashboard");
+      return null;
+    }
+    return state;
+  }
   redirectToDashboard() {
     resetRequestStatus();
     this.props.history.push("/dashboard");
   }
   render() {
-    //handle hard reload
-    if (this.props.query === null && this.props.match.params.id) {
-      this.props.history.push("/dashboard");
-      return null;
-    }
     const query = this.state.query;
     return (
       <div className="query-form block">
