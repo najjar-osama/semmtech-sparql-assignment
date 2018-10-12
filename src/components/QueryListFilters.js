@@ -5,6 +5,7 @@ import {
   setFilterDescription,
   setFilterCreator
 } from "../store/actions/filters";
+
 class QueryListFilters extends React.Component {
   constructor(props) {
     super(props);

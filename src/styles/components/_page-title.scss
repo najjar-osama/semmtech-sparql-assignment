@@ -1,0 +1,22 @@
+.page-title {
+  padding: 10px;
+}
+
+.page-title__title-text {
+  user-select: none;
+  font-size: 20px;
+  span {
+    color: $sem-yellow-darker;
+    font-size: 28px;
+    margin-right: 10px;
+    position: relative;
+    top: 3px;
+    @media screen and (min-width: $md) {
+      font-size: 48px;
+      top: 7px;
+    }
+  }
+  @media screen and (min-width: $md) {
+    font-size: 30px;
+  }
+}

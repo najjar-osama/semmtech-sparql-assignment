@@ -548,6 +548,26 @@ h2 {
   .notfound-page__message span {
     color: #f8e71c; }
 
+.page-title {
+  padding: 10px; }
+
+.page-title__title-text {
+  user-select: none;
+  font-size: 20px; }
+  .page-title__title-text span {
+    color: #ffd600;
+    font-size: 28px;
+    margin-right: 10px;
+    position: relative;
+    top: 3px; }
+    @media screen and (min-width: 786px) {
+      .page-title__title-text span {
+        font-size: 48px;
+        top: 7px; } }
+  @media screen and (min-width: 786px) {
+    .page-title__title-text {
+      font-size: 30px; } }
+
 .header {
   margin-bottom: 30px;
   border-bottom: 10px solid #ffd600; }

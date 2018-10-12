@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import queryFilter from "../queryFilter";
 import QueryListFilters from "./QueryListFilters";
 import QueryList from "./QueryList";
+
 export const QueryListView = props => {
   const queries = props.queries;
   return (

@@ -10,6 +10,7 @@ import { Provider, connect } from "react-redux";
 
 import HomePage from "./components/HomePage";
 import DashboardPage from "./components/DashboardPage";
+import NewQureyPage from "./components/NewQueryPage";
 import NotFoundPage from "./components/NotFoundPage";
 import { dataGetQueries } from "./store/actions/queries";
 
@@ -28,6 +29,7 @@ class App extends React.Component {
           <Switch>
             <Route exact path="/" component={HomePage} />
             <Route path="/dashboard" component={DashboardPage} />
+            <Route path="/new" component={NewQureyPage} />
             <Route component={NotFoundPage} />
           </Switch>
         </Router>
