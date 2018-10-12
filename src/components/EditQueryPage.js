@@ -18,6 +18,7 @@ const EditQueryPage = props => (
         deleteQuery={props.deleteQuery}
         updateQuery={props.updateQuery}
         history={props.history}
+        match={props.match}
       />
     </div>
   </React.Fragment>

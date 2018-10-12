@@ -1,13 +1,12 @@
 import React from "react";
 import urlSlug from "url-slug";
-
+import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { FAILURE } from "../store/requestStateTypes";
 import { resetRequestStatus } from "../store/actions/requestStatus";
 class QueryForm extends React.Component {
   constructor(props) {
     super(props);
-    // set
     const query =
       props.query === null
         ? {
@@ -42,6 +41,14 @@ class QueryForm extends React.Component {
     this.resultViewerNode = React.createRef();
     this.editorInstance = null;
     this.resultViewerInstance = null;
+  }
+
+  static getDerivedStateFromProps(props) {
+    //redirect when a hard reload is performed
+    if (props.query === null && props.match.params.id) {
+      props.history.push("/dashboard");
+    }
+    return null;
   }
 
   componentDidMount() {
@@ -154,9 +161,10 @@ class QueryForm extends React.Component {
   }
 
   redirectToDashboard() {
-    this.props.history.push("/dashboard");
     resetRequestStatus();
+    this.props.history.push("/dashboard");
   }
+  shouldComponentUpdate(nextProps, nextState) {}
   render() {
     const query = this.state.query;
     return (

@@ -9,4 +9,4 @@ import createStore from "./store/createStore";
 
 const store = createStore();
 ReactDOM.render(<App store={store} />, document.getElementById("root"));
-serviceWorker.unregister();
+serviceWorker.register();
