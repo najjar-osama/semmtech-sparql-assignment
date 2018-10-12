@@ -20,3 +20,19 @@ h2 {
     background-color: $sem-yellow-darker !important;
   }
 }
+
+.query_valid .svgImg,
+.query_error .svgImg {
+  display: none !important;
+}
+
+.query_valid,
+.query_error {
+  background-image: url("./assets/images/run.png");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.fullscreenToggleBtns {
+  margin-top: 10px !important;
+}

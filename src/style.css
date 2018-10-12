@@ -394,6 +394,19 @@ h2 {
     color: #000 !important;
     background-color: #ffd600 !important; }
 
+.query_valid .svgImg,
+.query_error .svgImg {
+  display: none !important; }
+
+.query_valid,
+.query_error {
+  background-image: url("./assets/images/run.png");
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.fullscreenToggleBtns {
+  margin-top: 10px !important; }
+
 .container {
   margin: 0 5%; }
 
@@ -443,8 +456,7 @@ h2 {
   text-align: center;
   transition: all 0.2s ease-in-out; }
   .btn:hover {
-    background-color: #ffd600;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5); }
+    background-color: #ffd600; }
   @media screen and (min-width: 786px) {
     .btn {
       font-size: 20px; } }
@@ -453,7 +465,8 @@ h2 {
   padding: 10px;
   color: #333;
   font-size: 18px;
-  border-width: 1; }
+  display: block;
+  width: 100%; }
 
 .home-page__content-wrapper {
   min-height: 100vh;
@@ -673,3 +686,6 @@ h2 {
   .query-list-action-bar__btn:hover {
     box-shadow: none;
     color: #fff; }
+
+.query-form__content-wrapper {
+  padding: 30px 15px; }

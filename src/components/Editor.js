@@ -4,9 +4,9 @@ class Editor extends React.Component {
   constructor(props) {
     super(props);
     this.editorNode = React.createRef();
-    this.resNode = React.createRef();
+    this.resultViewerNode = React.createRef();
     this.editorInstance = null;
-    this.resInstance = null;
+    this.resultViewerInstance = null;
   }
   componentDidMount() {
     this.editorInstance = window.YASQE(this.editorNode.current, {
@@ -19,7 +19,7 @@ class Editor extends React.Component {
       }
     });
 
-    this.resInstance = window.YASR(this.resNode.current, {
+    this.resultViewerInstance = window.YASR(this.resultViewerNode.current, {
       outputPlugins: ["error", "rawResponse", "table"],
       //this way, the URLs in the results are prettified using the defined prefixes in the query
       getUsedPrefixes: this.editorInstance.getPrefixesFromQuery,
@@ -30,14 +30,16 @@ class Editor extends React.Component {
     });
 
     // link the editor with res viewer
-    this.editorInstance.options.sparql.callbacks.complete = this.resInstance.setResponse;
+    this.editorInstance.options.sparql.callbacks.complete = this.resultViewerInstance.setResponse;
+
+    this.editorInstance.setValue(this.props.query);
   }
 
   render() {
     return (
       <React.Fragment>
         <div ref={this.editorNode} />
-        <div ref={this.resNode} />
+        <div ref={this.resultViewerNode} />
       </React.Fragment>
     );
   }
