@@ -1,0 +1,33 @@
+.query-list-filters {
+  border: 4px solid #888;
+}
+
+.query-list-filters__filter-fields-wrapper {
+  width: 100%;
+  align-items: stretch;
+}
+
+.query-list-filters__field {
+  flex: 1;
+}
+
+.query-list-filters__action-buttons-wrapper {
+  padding: 0;
+  @media screen and (min-width: $md) {
+    padding: 0 1px;
+  }
+}
+.query-list-filters__reset-btn {
+  background-color: $sem-yellow;
+  border: none;
+  display: block;
+  width: 100%;
+  color: #fff;
+  font-size: 18px;
+  padding: 10px;
+  text-align: center;
+  transition: all 0.2s ease-in-out;
+  &:hover {
+    background-color: $sem-yellow-darker;
+  }
+}

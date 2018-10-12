@@ -2,14 +2,13 @@ import React from "react";
 import Header from "./Header";
 import withPageLayout from "./withPageLayout";
 import Editor from "./Editor";
+import QueryListView from "./QueryListView";
 
 const DashboardPage = () => (
   <React.Fragment>
     <Header />
     <div className="dashboard-page__content-wrapper">
-      <h1>main-content-wrapper</h1>
-      <br />
-      <Editor />
+      <QueryListView />
     </div>
   </React.Fragment>
 );

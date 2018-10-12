@@ -1,5 +1,6 @@
 .header {
   margin-bottom: 30px;
+  border-bottom: 10px solid $sem-yellow-darker;
 }
 
 .header__content-wrapper {
@@ -10,6 +11,7 @@
   text-align: center;
   margin-top: -20px;
   transition: all 0.2s ease-in-out;
+  user-select: none;
   span {
     color: $sem-yellow;
   }

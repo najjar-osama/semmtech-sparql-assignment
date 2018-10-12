@@ -5,6 +5,8 @@ import ReactDOM from "react-dom";
 import App from "./App";
 import "./style.css";
 import * as serviceWorker from "./serviceWorker";
+import createStore from "./store/createStore";
 
-ReactDOM.render(<App />, document.getElementById("root"));
+const store = createStore();
+ReactDOM.render(<App store={store} />, document.getElementById("root"));
 serviceWorker.unregister();

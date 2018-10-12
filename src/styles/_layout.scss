@@ -6,6 +6,10 @@
   display: flex;
 }
 
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
 .flex-dir--column {
   flex-direction: column;
 }
@@ -22,6 +26,9 @@
 
 .block {
   background-color: rgba(0, 0, 0, 0.5);
+}
+
+.shadow {
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.8);
 }
 
