@@ -52,14 +52,43 @@
 }
 
 .query-list-item__title {
+  font-size: 20px;
+  @media screen and (min-width: $md) {
+    font-size: 26px;
+  }
 }
 .query-list-item__desc {
-  font-size: 18px;
+  font-size: 14px;
   margin-bottom: 0;
+  @media screen and (min-width: $md) {
+    font-size: 18px;
+  }
 }
 .query-list-item__creator {
-  font-size: 16px;
+  font-size: 12px;
   font-style: italic;
   text-align: right;
   margin-bottom: 0;
+  @media screen and (min-width: $md) {
+    font-size: 14px;
+  }
+}
+
+.query-list-action-bar {
+}
+.query-list-action-bar__content-wrapper {
+  padding: 5px 15px;
+  width: 100%;
+}
+
+.query-list-action-bar__btn {
+  float: right;
+  background-color: transparent;
+  color: $sem-yellow;
+  text-decoration: underline;
+  padding: 10px;
+  &:hover {
+    box-shadow: none;
+    color: #fff;
+  }
 }

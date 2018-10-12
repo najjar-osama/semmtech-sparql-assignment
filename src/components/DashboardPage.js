@@ -3,12 +3,12 @@ import Header from "./Header";
 import withPageLayout from "./withPageLayout";
 import QueryListView from "./QueryListView";
 import PageTitle from "./PageTitle";
-const DashboardPage = () => (
+const DashboardPage = props => (
   <React.Fragment>
     <Header />
     <div className="dashboard-page__content-wrapper">
       <PageTitle title="Explore Others' Queries" />
-      <QueryListView />
+      <QueryListView history={props.history} />
     </div>
   </React.Fragment>
 );

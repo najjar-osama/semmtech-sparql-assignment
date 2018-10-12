@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import queryFilter from "../queryFilter";
 import QueryListFilters from "./QueryListFilters";
+import QueryListActionBar from "./QueryListActionBar";
 import QueryList from "./QueryList";
 
 export const QueryListView = props => {
@@ -9,6 +10,7 @@ export const QueryListView = props => {
   return (
     <div>
       <QueryListFilters />
+      <QueryListActionBar history={props.history} />
       <QueryList queries={queries} />
     </div>
   );

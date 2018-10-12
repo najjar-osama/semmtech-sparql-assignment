@@ -638,12 +638,38 @@ h2 {
   .query-list-item:hover {
     border-left: 6px solid #ffd600; }
 
+.query-list-item__title {
+  font-size: 20px; }
+  @media screen and (min-width: 786px) {
+    .query-list-item__title {
+      font-size: 26px; } }
+
 .query-list-item__desc {
-  font-size: 18px;
+  font-size: 14px;
   margin-bottom: 0; }
+  @media screen and (min-width: 786px) {
+    .query-list-item__desc {
+      font-size: 18px; } }
 
 .query-list-item__creator {
-  font-size: 16px;
+  font-size: 12px;
   font-style: italic;
   text-align: right;
   margin-bottom: 0; }
+  @media screen and (min-width: 786px) {
+    .query-list-item__creator {
+      font-size: 14px; } }
+
+.query-list-action-bar__content-wrapper {
+  padding: 5px 15px;
+  width: 100%; }
+
+.query-list-action-bar__btn {
+  float: right;
+  background-color: transparent;
+  color: #f8e71c;
+  text-decoration: underline;
+  padding: 10px; }
+  .query-list-action-bar__btn:hover {
+    box-shadow: none;
+    color: #fff; }
