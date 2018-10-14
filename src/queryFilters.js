@@ -9,7 +9,7 @@ export const filterQueries = (queries, { name, description, creator }) => {
     const creatorMatch = creator
       ? query.creator.toLowerCase().includes(creator.toLowerCase())
       : true; // true means that this search string won't affect filtering since it's falsy or undefined
-    return nameMatch & descriptionMatch & creatorMatch;
+    return nameMatch && descriptionMatch && creatorMatch;
   });
   return nextQueries;
 };
