@@ -4,7 +4,7 @@
 
 ## Table of Contents
 
-- [What is SPARQL Buddy?](#)
+- [What is SPARQL Buddy?](#what-is-sparql-buddy)
 - [Installing & Configuration](#)
 - [Available Scripts](#)
 - [App State ](#)
