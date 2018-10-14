@@ -3,7 +3,7 @@ import Header from "./Header";
 import withPageLayout from "./withPageLayout";
 import QueryListView from "./QueryListView";
 import PageTitle from "./PageTitle";
-const DashboardPage = props => (
+export const DashboardPage = props => (
   <React.Fragment>
     <Header />
     <div className="dashboard-page__content-wrapper">

@@ -1,6 +1,6 @@
 import React from "react";
 
-const QueryListItem = ({ id, name, description, creator, history }) => {
+export const QueryListItem = ({ id, name, description, creator, history }) => {
   return (
     <div
       className="query-list-item"

@@ -1,7 +1,7 @@
 import React from "react";
 import withPageLayout from "./withPageLayout";
 
-const NotFoundPage = props => (
+export const NotFoundPage = props => (
   <div className="notfound-page__content-wrapper block">
     <h1 className="notfound-page__message">
       <span>404 | </span>

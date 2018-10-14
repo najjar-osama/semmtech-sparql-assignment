@@ -74,6 +74,8 @@ const mapDispatchToProps = dispatch => ({
     dispatch(setFilterDescription(description)),
   setFilterCreator: creator => dispatch(setFilterCreator(creator))
 });
+
+export { QueryListFilters };
 export default connect(
   mapStateToProps,
   mapDispatchToProps

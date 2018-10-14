@@ -1,6 +1,5 @@
 import React from "react";
 import urlSlug from "url-slug";
-import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { FAILURE } from "../store/requestStateTypes";
 import { resetRequestStatus } from "../store/actions/requestStatus";
@@ -196,35 +195,40 @@ class QueryForm extends React.Component {
             <div ref={this.editorNode} />
             <div ref={this.resultViewerNode} />
             <br />
-            <div className="query-form__form-actions">
-              <button
-                className="btn query-form__btn"
-                onClick={this.handleSubmit}
-              >
-                Save
-              </button>
-              <button
-                onClick={e => {
-                  e.preventDefault();
-                  this.props.history.push("/dashboard");
-                }}
-                className="btn query-form__btn"
-              >
-                Back
-              </button>
-              {this.state.isUpdateMode && (
+            <div className="query-form__form-actions flex flex-justify-content--space-between">
+              <div className="flex">
+                <button
+                  className="btn query-form__btn"
+                  onClick={this.handleSubmit}
+                >
+                  Save
+                </button>
                 <button
                   onClick={e => {
                     e.preventDefault();
-                    this.props.deleteQuery(
-                      this.state.query.id,
-                      this.redirectToDashboard
-                    );
+                    this.props.history.push("/dashboard");
                   }}
-                  className="btn btn--danger btn--right query-form__btn"
+                  className="btn query-form__btn "
                 >
-                  Delete
+                  Back
                 </button>
+              </div>
+
+              {this.state.isUpdateMode && (
+                <div className="flex">
+                  <button
+                    onClick={e => {
+                      e.preventDefault();
+                      this.props.deleteQuery(
+                        this.state.query.id,
+                        this.redirectToDashboard
+                      );
+                    }}
+                    className="btn btn--danger query-form__btn "
+                  >
+                    Delete
+                  </button>
+                </div>
               )}
             </div>
           </form>

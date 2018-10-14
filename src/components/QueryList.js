@@ -1,6 +1,6 @@
 import React from "react";
 import QueryListItem from "./QueryListItem";
-const QueryList = props => (
+export const QueryList = props => (
   <div className="query-list block">
     <div className="query-list__content-wrapper">
       {props.queries.length !== 0 ? (

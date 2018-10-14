@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { resetRequestStatus } from "../store/actions/requestStatus";
-const QueryListActionBar = ({ history, resetRequestStatus }) => (
+export const QueryListActionBar = ({ history, resetRequestStatus }) => (
   <div className="query-list-action-bar block">
     <div className="query-list-action-bar__content-wrapper">
       <button

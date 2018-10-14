@@ -7,14 +7,13 @@ import { connect } from "react-redux";
 import { getQueryById } from "../queryFilters";
 import { dataUpdateQuery, dataDeleteQuery } from "../store/actions/queries";
 
-const EditQueryPage = props => (
+export const EditQueryPage = props => (
   <React.Fragment>
     <Header />
-    <div className="new-query-page__content-wrapper">
+    <div className="edit-query-page__content-wrapper">
       <PageTile title="Edit Query" />
       <QueryForm
         query={props.query}
-        requestStatus={props.requestStatus}
         deleteQuery={props.deleteQuery}
         updateQuery={props.updateQuery}
         history={props.history}
@@ -25,7 +24,6 @@ const EditQueryPage = props => (
 );
 
 const mapStateToProps = (state, props) => ({
-  requestStatus: state.requestStatus,
   query: getQueryById(state.queries, props.match.params.id)
 });
 const mapDispatchToProps = dispatch => ({

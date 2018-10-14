@@ -8,7 +8,7 @@ import QueryList from "./QueryList";
 export const QueryListView = props => {
   const queries = props.queries;
   return (
-    <div>
+    <div className="query-listview">
       <QueryListFilters />
       <QueryListActionBar history={props.history} />
       <QueryList history={props.history} queries={queries} />
