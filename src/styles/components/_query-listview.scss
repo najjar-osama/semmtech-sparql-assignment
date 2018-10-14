@@ -12,9 +12,11 @@
   width: auto;
   border: 2px solid transparent;
   transition: all 0.2s ease-in-out;
-  &:hover,
-  &:focus {
+  &:hover {
     border-color: $sem-yellow;
+  }
+  &:focus {
+    border-color: $sem-yellow-darker;
   }
 }
 
@@ -28,7 +30,8 @@
   background-color: $sem-yellow;
   border: none;
   display: block;
-  width: 100%;
+  flex: 1;
+  flex-basis: 100%;
   color: #fff;
   font-size: 18px;
   padding: 10px;

@@ -659,8 +659,10 @@ h2 {
   width: auto;
   border: 2px solid transparent;
   transition: all 0.2s ease-in-out; }
-  .query-list-filters__field:hover, .query-list-filters__field:focus {
+  .query-list-filters__field:hover {
     border-color: #f8e71c; }
+  .query-list-filters__field:focus {
+    border-color: #ffd600; }
 
 .query-list-filters__action-buttons-wrapper {
   padding: 0; }
@@ -672,7 +674,8 @@ h2 {
   background-color: #f8e71c;
   border: none;
   display: block;
-  width: 100%;
+  flex: 1;
+  flex-basis: 100%;
   color: #fff;
   font-size: 18px;
   padding: 10px;

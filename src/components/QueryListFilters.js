@@ -52,7 +52,7 @@ class QueryListFilters extends React.Component {
             placeholder="author.."
           />
         </div>
-        <div className="query-list-filters__action-buttons-wrapper ">
+        <div className="query-list-filters__action-buttons-wrapper flex">
           <button
             className="query-list-filters__reset-btn"
             onClick={this.reset}
