@@ -68,7 +68,7 @@ class QueryForm extends React.Component {
     this.editorInstance.options.sparql.callbacks.complete = this.resultViewerInstance.setResponse;
     const editorContent = this.state.query.query
       ? this.state.query.query
-      : `### Your awesome SPARQL query goes here! \n### Excute the query, Satisfied? Save it!\n`;
+      : `### Your awesome SPARQL query goes here! \n### Excute the query, results ok? Save it!\n`;
     this.editorInstance.setValue(editorContent);
     window.res = this.resultViewerInstance;
   }
