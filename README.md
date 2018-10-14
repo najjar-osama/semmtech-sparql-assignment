@@ -5,7 +5,7 @@
 ## Table of Contents
 
 - [What is SPARQL Buddy?](#what-is-sparql-buddy)
-- [Installing & Configuration](##installing--configuration)
+- [Installing & Configuration](#installing--configuration)
 - [Available Scripts](#available-scripts)
 - [App State ](#apps-state)
 - [Naming Conventions ](#naming-conventions)
