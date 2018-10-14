@@ -657,7 +657,10 @@ h2 {
 .query-list-filters__field {
   flex: 1;
   width: auto;
-  border: none; }
+  border: 2px solid transparent;
+  transition: all 0.2s ease-in-out; }
+  .query-list-filters__field:hover, .query-list-filters__field:focus {
+    border-color: #f8e71c; }
 
 .query-list-filters__action-buttons-wrapper {
   padding: 0; }
