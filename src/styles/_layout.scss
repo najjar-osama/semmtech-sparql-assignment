@@ -6,6 +6,12 @@
   display: flex;
 }
 
+.flex-element {
+  flex: initial;
+}
+.flex-justify-content--space-between {
+  justify-content: space-between;
+}
 .flex-wrap {
   flex-wrap: wrap;
 }
@@ -19,6 +25,14 @@
 .flex-ver--center {
   justify-content: center;
 }
+
+.flex-align-self--start {
+  align-self: flex-start;
+}
+.flex-align-self--end {
+  align-self: flex-end;
+}
+
 .page {
   min-height: 100vh;
   padding: 60px 0;

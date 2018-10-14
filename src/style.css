@@ -414,6 +414,12 @@ h2 {
 .flex {
   display: flex; }
 
+.flex-element {
+  flex: initial; }
+
+.flex-justify-content--space-between {
+  justify-content: space-between; }
+
 .flex-wrap {
   flex-wrap: wrap; }
 
@@ -425,6 +431,12 @@ h2 {
 
 .flex-ver--center {
   justify-content: center; }
+
+.flex-align-self--start {
+  align-self: flex-start; }
+
+.flex-align-self--end {
+  align-self: flex-end; }
 
 .page {
   min-height: 100vh;
@@ -669,9 +681,10 @@ h2 {
 .query-list__content-wrapper {
   box-shadow: inset 0px 0px 1px 0px black;
   padding: 15px 15px;
-  max-height: 400px;
+  height: 400px;
   width: 100%;
-  overflow: auto; }
+  overflow: auto;
+  resize: vertical; }
 
 .query-list__content-wrapper::-webkit-scrollbar {
   background: transparent; }

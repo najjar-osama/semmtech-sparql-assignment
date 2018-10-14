@@ -40,9 +40,10 @@
 .query-list__content-wrapper {
   box-shadow: inset 0px 0px 1px 0px black;
   padding: 15px 15px;
-  max-height: 400px;
+  height: 400px;
   width: 100%;
   overflow: auto;
+  resize: vertical;
 }
 
 .query-list__content-wrapper::-webkit-scrollbar {
