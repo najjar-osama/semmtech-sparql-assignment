@@ -238,6 +238,8 @@ class QueryForm extends React.Component {
   }
 }
 
+export { QueryForm };
+
 const mapDispatchToProps = dispatch => ({
   resetRequestStatus: () => dispatch(resetRequestStatus())
 });
