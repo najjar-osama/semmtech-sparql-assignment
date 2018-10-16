@@ -38,7 +38,6 @@ export const dataCreateQuery = (query, successCB) => {
         }
       })
       .catch(err => {
-        console.log("osama");
         dispatch(setRequestStatusFailure(err));
       });
   };
@@ -89,7 +88,6 @@ export const dataDeleteQuery = (id, successCB) => {
           res.text().then(message => {
             dispatch(setRequestStatusSuccess(message));
             dispatch(deleteQuery(id));
-            console.log(successCB);
             if (successCB) {
               successCB();
             }

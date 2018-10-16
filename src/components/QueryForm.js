@@ -6,6 +6,7 @@ import { resetRequestStatus } from "../store/actions/requestStatus";
 class QueryForm extends React.Component {
   constructor(props) {
     super(props);
+    //init state.query with either empty query when create new query or the passed query from the parent component ( EditQueryPage )
     const query =
       props.query === null
         ? {
@@ -18,7 +19,7 @@ class QueryForm extends React.Component {
         : props.query;
     this.state = {
       query,
-      isUpdateMode: props.query !== null,
+      isUpdateMode: props.query !== null, //  which mode Create Query or Edit Query
       valid: false,
       validationMessage: ""
     };
@@ -32,7 +33,8 @@ class QueryForm extends React.Component {
 
     //handle validation
     this.validateRequest = this.validateRequest.bind(this);
-    this.captureSubmitAnPrevent = this.captureSubmitAnPrevent.bind(this);
+
+    this.captureSubmitAndPrevent = this.captureSubmitAndPrevent.bind(this);
     this.redirectToDashboard = this.redirectToDashboard.bind(this);
 
     // set editor nodes and instances
@@ -53,7 +55,7 @@ class QueryForm extends React.Component {
         showQueryButton: true
       }
     });
-
+    // initialize & configure query result viewer
     this.resultViewerInstance = window.YASR(this.resultViewerNode.current, {
       outputPlugins: ["error", "rawResponse", "table"],
       //this way, the URLs in the results are prettified using the defined prefixes in the query
@@ -66,11 +68,11 @@ class QueryForm extends React.Component {
 
     // link the editor with res viewer
     this.editorInstance.options.sparql.callbacks.complete = this.resultViewerInstance.setResponse;
+    // set editor content
     const editorContent = this.state.query.query
       ? this.state.query.query
       : `### Your awesome SPARQL query goes here! \n### Excute the query, results ok? Save it!\n`;
     this.editorInstance.setValue(editorContent);
-    window.res = this.resultViewerInstance;
   }
 
   handleNameChange(e) {
@@ -147,16 +149,15 @@ class QueryForm extends React.Component {
       );
     }
   }
-  captureSubmitAnPrevent(e) {
+  captureSubmitAndPrevent(e) {
+    /* why this function? as we have in the form two uncontroled 
+       components ( Query Editor & Query Result Viewer ) pressing some button in these 
+       elment (e.g. excute query) will cause an 'Event Bubbiling' and this in its turn 
+       will cause the form to be submitted ( the default submit ) without the intention to do that
+       and so this function will capture any unintended submission and ignore/cancel it.
+       in the other hand form submission is handled by 'handlSubmit' function.
+    */
     e.preventDefault();
-  }
-  static getDerivedStateFromProps(props, state) {
-    //handle hard reload
-    if (props.query === null && props.match && props.match.params.id) {
-      props.history.push("/dashboard");
-      return null;
-    }
-    return state;
   }
   redirectToDashboard() {
     resetRequestStatus();
@@ -172,7 +173,7 @@ class QueryForm extends React.Component {
           </div>
           <form
             className="query-form__form"
-            onSubmit={this.captureSubmitAnPrevent}
+            onSubmit={this.captureSubmitAndPrevent}
           >
             <input
               className="text-input"
@@ -244,7 +245,8 @@ const mapDispatchToProps = dispatch => ({
   resetRequestStatus: () => dispatch(resetRequestStatus())
 });
 const mapStateToProps = state => ({
-  requestStatus: state.requestStatus
+  requestStatus: state.requestStatus,
+  c: state
 });
 export default connect(
   mapStateToProps,
