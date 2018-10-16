@@ -36,20 +36,20 @@ class QueryListFilters extends React.Component {
           <input
             className="text-input query-list-filters__field"
             value={this.props.filters.name}
-            placeholder="query name .."
+            placeholder="query name..."
             onChange={this.handleNameChange}
           />
           <input
             className="text-input query-list-filters__field"
             value={this.props.filters.description}
-            placeholder="description.."
+            placeholder="description..."
             onChange={this.handleDescriptionChange}
           />
           <input
             className="text-input query-list-filters__field"
             value={this.props.filters.creator}
             onChange={this.handleCreatorChange}
-            placeholder="author.."
+            placeholder="author..."
           />
         </div>
         <div className="query-list-filters__action-buttons-wrapper flex">
